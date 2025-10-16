@@ -2,6 +2,10 @@ package pobj.motx.tme2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 
 /**
  * Un ensemble de mots.
@@ -64,6 +68,47 @@ public class Dictionnaire {
 		}
 		mots = cible;
 		return cpt;
+	}
+	
+	/**
+	 * Charge un dictionnaire depuis un fichier texte.
+	 * Chaque ligne du fichier doit contenir un mot.
+	 * 
+	 * @param path chemin du fichier à lire
+	 * @return un nouveau Dictionnaire contenant tous les mots lus
+	 */
+	public static Dictionnaire loadDictionnaire(String path) {
+	    Dictionnaire dico = new Dictionnaire();
+	    try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+	        for (String line = br.readLine(); line != null; line = br.readLine()) {
+	            if (!line.trim().isEmpty()) {
+	                dico.add(line.trim());
+	            }
+	        }
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	    return dico;
+	}
+
+	/**
+	 * Retire les mots dont la i-eme lettre n'est pas égale à c.
+	 * @param c le caractère à vérifier
+	 * @param i l'indice dans le mot (0-based)
+	 * @return le nombre de mots supprimés
+	 */
+	public int filtreParLettre(char c, int i) {
+	    List<String> cible = new ArrayList<>();
+	    int supprimés = 0;
+	    for (String mot : mots) {
+	        if (i < mot.length() && mot.charAt(i) == c) {
+	            cible.add(mot);
+	        } else {
+	            supprimés++;
+	        }
+	    }
+	    mots = cible;
+	    return supprimés;
 	}
 
 	
