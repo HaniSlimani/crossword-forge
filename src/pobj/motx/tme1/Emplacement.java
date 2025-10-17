@@ -47,6 +47,16 @@ public class Emplacement {
     public Case getCase(int i) {
         return cases.get(i);
     }
+    
+    public boolean hasCaseVide() {
+        for (Case c : cases) {
+            if (c.getChar() == ' ') {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     /**
      * Renvoie la chaîne de caractères correspondant aux

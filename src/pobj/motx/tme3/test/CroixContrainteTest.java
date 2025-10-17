@@ -9,7 +9,7 @@ import pobj.motx.tme1.GrilleLoader;
 import pobj.motx.tme2.Dictionnaire;
 import pobj.motx.tme2.GrillePlaces;
 import pobj.motx.tme2.GrillePotentiel;
-import pobj.motx.tme3.CroixContrainte;
+import pobj.motx.tme3.csp.CroixContrainte;
 
 public class CroixContrainteTest {
 

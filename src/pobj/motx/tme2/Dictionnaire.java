@@ -40,6 +40,11 @@ public class Dictionnaire {
 	public String get(int i) {
 		return mots.get(i);
 	}
+	
+	public List<String> getMots() {
+	    return new ArrayList<>(mots);
+	}
+
 
 	/**
 	 * Rend une copie de ce Dictionnaire.
@@ -110,6 +115,43 @@ public class Dictionnaire {
 	    mots = cible;
 	    return supprimés;
 	}
+	/**
+	 * Calcule l'ensemble des lettres possibles à une position donnée
+	 * dans les mots du dictionnaire.
+	 *
+	 * @param index position de la lettre dans le mot
+	 * @return un EnsembleLettre représentant toutes les lettres possibles à cet index
+	 */
+	public EnsembleLettre getEnsembleLettre(int index) {
+	    EnsembleLettre e = new EnsembleLettre();
+	    for (String mot : mots) {
+	        if (index < mot.length()) {
+	            e.add(mot.charAt(index));
+	        }
+	    }
+	    return e;
+	}
+	/**
+	 * Filtre le dictionnaire pour ne garder que les mots dont la lettre
+	 * à la position donnée appartient à un ensemble de lettres possibles.
+	 *
+	 * @param index   la position dans le mot
+	 * @param lettres l'ensemble de lettres autorisées
+	 * @return un nouveau Dictionnaire filtré
+	 */
+	public Dictionnaire filtreParLettre(int index, EnsembleLettre lettres) {
+	    Dictionnaire d = new Dictionnaire();
+	    for (String mot : mots) {
+	        if (lettres.contains(mot.charAt(index))) {
+	            d.add(mot); // Utilise la méthode existante add(String)
+	        }
+	    }
+	    return d;
+	}
+
+
+
+
 
 	
 	@Override
