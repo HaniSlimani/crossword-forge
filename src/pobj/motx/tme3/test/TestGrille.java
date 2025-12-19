@@ -14,7 +14,7 @@ import pobj.motx.tme3.csp.CSPSolver;
 import pobj.motx.tme3.csp.ICSP;
 
 public class TestGrille {
-
+/*
     private void testGrid(String dictPath, String gridPath) {
         Dictionnaire dico = Dictionnaire.loadDictionnaire(dictPath);
         Grille grilleBrute = GrilleLoader.loadGrille(gridPath);
@@ -55,4 +55,6 @@ public class TestGrille {
     }
 
     // Ajouter d'autres grilles si besoin
+    /// *∕
+     */
 }

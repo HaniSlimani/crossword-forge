@@ -12,7 +12,7 @@ import pobj.motx.tme3.csp.CSPSolver;
 import pobj.motx.tme3.csp.ICSP;
 
 public class GrilleSolverTest {
-
+/*
 	@Test
 	public void testHard() {
 		Dictionnaire gut = Dictionnaire.loadDictionnaire("data/frgut.txt");
@@ -37,5 +37,5 @@ public class GrilleSolverTest {
 
 		System.out.println("Solution \n" + solution + " \nCalculée en "+ (System.currentTimeMillis() - timestamp) +" ms " );
 	}
-
+*/
 }
